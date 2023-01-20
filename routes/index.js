@@ -113,6 +113,23 @@ router.get('/log-out', (req, res) => {
   });
 });
 
+router
+  .route('/activate')
+  .get((req, res, next) => {
+    if (!req.user) return next(null, req, res);
 
+    res.render('activate-form', { error: null });
+  })
+  .post((req, res, next) => {
+    if (req.body.code === 'PIZZAPARTY') {
+      console.log(req.user._id);
+      User.findByIdAndUpdate(req.user._id, { isMember: true }, err => {
+        if (err) return next(err);
+        res.redirect("/");
+      });
+    } else {
+      res.render('activate-form', { error: 'Incorrect code. Try again?' });
+    }
+  });
 
 module.exports = router;

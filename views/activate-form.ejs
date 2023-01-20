@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Become a Member | Members Only</title>
+</head>
+
+<body>
+  <%- include('partials/header.ejs', {user}) %>
+  <div class="center-wrapper">
+    <form action="" method="POST" class="fullpage-form activate-form">
+      <h1>Input an activation code</h1>
+      <% if (error) { %>
+      <% } %>
+      <p class="subtitle">Hint: It's PIZZAPARTY</p>
+      <div class="form-section">
+        <input type="text" name="code" id="code">
+        <button class="submit">Submit</button>
+      </div>
+      <p class="error"><%= error %> </p>
+    </form>
+  </div>
+</body>
+
+</html>

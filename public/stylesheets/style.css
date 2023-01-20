@@ -12,6 +12,8 @@ body {
   padding: 0;
   font-family: 'Open Sans', sans-serif;
   color: #1f2937;
+  display: flex;
+  flex-direction: column;
 }
 
 input,
@@ -19,6 +21,15 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 
 button {
@@ -33,6 +44,7 @@ a {
 }
 
 header {
+  width: 100%;
   margin: 0 auto;
   padding: 0.8rem 2rem;
   display: flex;
@@ -67,13 +79,20 @@ header .secondary-action {
   font-weight: 600;
 }
 
-.sign-up-wrapper {
+.center-wrapper {
+  flex: 1;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.sign-up {
+.center-wrapper h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.fullpage-form {
   margin: 0 2rem;
   width: 100%;
   max-width: 500px;
@@ -82,16 +101,16 @@ header .secondary-action {
   flex-direction: column;
 }
 
-.sign-up a {
+.fullpage-form a {
   color: #9333ea;
 }
 
-.sign-up h1 {
+.fullpage-form h1 {
   margin-bottom: 2px;
   text-align: center;
 }
 
-.sign-up .subtitle {
+.fullpage-form .subtitle {
   margin-bottom: 1rem;
   color: #64748b;
   text-align: center;
@@ -105,28 +124,51 @@ header .secondary-action {
   width: 100%;
 }
 
-.sign-up > div:nth-child(1) {
+.activate-form-wrapper {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.activate-form .subtitle{
+  margin-bottom: 2rem;
+}
+
+.activate-form h1 {
+  font-size: 1.7rem;
+}
+
+.activate-form .form-section {
+  flex-direction: row;
+  width: 100%;
+}
+
+.activate-form .form-section input {
+  width: 100%;
+}
+
+.fullpage-form > div:nth-child(1) {
   margin-bottom: 1.5rem;
 }
 
-.sign-up label {
+.fullpage-form label {
   font-weight: 500;
 }
 
-.sign-up input {
+.fullpage-form input {
   border-radius: 0.6rem;
   padding: 0.6rem 1.1rem;
   font-size: 1rem;
   border: 1px solid #64748b;
 }
 
-.sign-up input:focus {
+.fullpage-form input:focus {
   outline: 0;
   border: 1px solid #a855f7;
   box-shadow: #a855f7 0px 0px 8px;
 }
 
-.sign-up .submit {
+.fullpage-form .submit {
   font-size: inherit;
   padding: 0.7rem 1.5rem;
   border: 0;
@@ -137,7 +179,7 @@ header .secondary-action {
   align-self: flex-end;
 }
 
-.sign-up .submit:hover {
+.fullpage-form .submit:hover {
   cursor: pointer;
 }
 
