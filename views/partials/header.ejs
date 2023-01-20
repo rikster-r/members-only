@@ -1,0 +1,19 @@
+<header>
+  <span class="page-title">
+    <a href="/">Members Only</a>
+  </span>
+  <% if (user) { %>
+  <a href="/log-out" class="secondary-action">
+    Log Out
+  </a>
+  <button class="primary-action">
+    <a href="/activate">
+      Become Member
+    </a>
+  </button>
+  <% } else { %>
+  <button class="primary-action">
+    <a href="/sign-up">Join </a>
+  </button>
+  <% } %>
+</header>

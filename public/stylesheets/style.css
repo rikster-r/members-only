@@ -21,13 +21,53 @@ select {
   font: inherit;
 }
 
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
-  color: #00b7ff;
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+header .page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #9333ea;
+  margin-right: auto;
+}
+
+header .primary-action {
+  background-color: #9333ea;
+  color: #fff;
+  border: 0;
+  border-radius: 0.8rem;
+  max-width: max-content;
+  font-weight: 600;
+}
+
+header .primary-action a {
+  width: 100%;
+  padding: 0.5rem 1.1rem;
+}
+
+header .secondary-action {
+  color: #9333ea;
+  font-weight: 600;
 }
 
 .sign-up-wrapper {
-  border-top: 1rem solid #00b7ff;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +80,10 @@ a {
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
+}
+
+.sign-up a {
+  color: #9333ea;
 }
 
 .sign-up h1 {
@@ -78,15 +122,15 @@ a {
 
 .sign-up input:focus {
   outline: 0;
-  border: 1px solid #22d3ee;
-  box-shadow: #22d3ee 0px 0px 8px;
+  border: 1px solid #a855f7;
+  box-shadow: #a855f7 0px 0px 8px;
 }
 
 .sign-up .submit {
   font-size: inherit;
   padding: 0.7rem 1.5rem;
   border: 0;
-  background-color: #00b7ff;
+  background-color: #9333ea;
   color: #fff;
   border-radius: 0.6rem;
   width: max-content;

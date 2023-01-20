@@ -32,6 +32,11 @@ router
       .withMessage('Email is required')
       .isEmail()
       .withMessage('Invalid Email')
+      .custom(value => {
+        return User.findOne({ email: value }).then(user => {
+          if (user) return Promise.reject('Account with this email already exists');
+        });
+      })
       .normalizeEmail(),
     body('password')
       .trim()
