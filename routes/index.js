@@ -7,19 +7,19 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express', user: req.user || 'Not logged in' });
+  res.render('index', { title: 'Express' });
 });
 
 router
   .route('/sign-up')
-  .get(function (req, res) {
+  .get((req, res) => {
     res.render('sign-up-form', {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      passwordConfirm: '',
-      errors: '',
+      firstName: null,
+      lastName: null,
+      email: null,
+      password: null,
+      passwordConfirm: null,
+      errors: null,
     });
   })
   .post(
@@ -31,7 +31,7 @@ router
       .trim()
       .withMessage('Email is required')
       .isEmail()
-      .withMessage('Incorrect Email')
+      .withMessage('Invalid Email')
       .normalizeEmail(),
     body('password')
       .trim()
@@ -47,7 +47,6 @@ router
       }),
     (req, res, next) => {
       const errors = validationResult(req);
-      console.log(errors.array());
       if (!errors.isEmpty()) {
         res.render('sign-up-form', {
           firstName: req.body.firstName,
@@ -86,6 +85,18 @@ router
         });
       });
     }
+  );
+
+router
+  .route('/sign-in')
+  .get((req, res) => {
+    res.render('sign-in-form', { errors: null, email: null, password: null });
+  })
+  .post(
+    passport.authenticate('local', {
+      successRedirect: '/',
+      failureRedirect: '/sign-in',
+    })
   );
 
 module.exports = router;
