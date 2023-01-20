@@ -104,4 +104,15 @@ router
     })
   );
 
+router.get('/log-out', (req, res) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+});
+
+
+
 module.exports = router;
