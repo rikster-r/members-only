@@ -160,4 +160,12 @@ router.post('/new-message', body('message').trim().not().isEmpty().escape(), (re
   res.redirect('/');
 });
 
+router.get('/:id/delete', (req, res, next) => {
+  Message.findByIdAndDelete(req.params.id, err => {
+    if (err) return next(err);
+
+    res.redirect('/');
+  });
+});
+
 module.exports = router;
