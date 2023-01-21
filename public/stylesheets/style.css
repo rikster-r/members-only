@@ -45,8 +45,7 @@ a {
 
 header {
   width: 100%;
-  margin: 0 auto;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 10%;
   display: flex;
   gap: 1rem;
   align-items: center;
