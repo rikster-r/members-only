@@ -1,13 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const Message = require('../models/message');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  Message.find({})
+    .populate('author')
+    .sort({ timestamp: -1 })
+    .exec((err, messages) => {
+      if (err) return next(err);
+
+      res.render('index', { messages });
+    });
 });
 
 router
@@ -125,11 +133,31 @@ router
       console.log(req.user._id);
       User.findByIdAndUpdate(req.user._id, { isMember: true }, err => {
         if (err) return next(err);
-        res.redirect("/");
+        res.redirect('/');
       });
     } else {
       res.render('activate-form', { error: 'Incorrect code. Try again?' });
     }
   });
+
+router.post('/new-message', body('message').trim().not().isEmpty().escape(), (req, res, next) => {
+  errors = validationResult(req);
+  if (errors.isEmpty()) {
+    console.log('REACH-1');
+
+    const message = new Message({
+      author: req.user._id,
+      text: req.body.message,
+      timestamp: new Date(),
+    });
+
+    console.log('REACH-2');
+    message.save(err => {
+      console.log('REACH-3');
+      if (err) return next(err);
+    });
+  }
+  res.redirect('/');
+});
 
 module.exports = router;

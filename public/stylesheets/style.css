@@ -82,8 +82,14 @@ header .secondary-action {
 .center-wrapper {
   flex: 1;
   height: 100%;
+  gap: 3rem;
+  padding: 2rem;
   display: flex;
   justify-content: center;
+}
+
+.center-vertical {
+  gap: 0;
   align-items: center;
 }
 
@@ -92,7 +98,7 @@ header .secondary-action {
   font-weight: 700;
 }
 
-.fullpage-form {
+.form {
   margin: 0 2rem;
   width: 100%;
   max-width: 500px;
@@ -101,16 +107,16 @@ header .secondary-action {
   flex-direction: column;
 }
 
-.fullpage-form a {
+.form a {
   color: #9333ea;
 }
 
-.fullpage-form h1 {
+.form h1 {
   margin-bottom: 2px;
   text-align: center;
 }
 
-.fullpage-form .subtitle {
+.form .subtitle {
   margin-bottom: 1rem;
   color: #64748b;
   text-align: center;
@@ -127,10 +133,9 @@ header .secondary-action {
 .activate-form-wrapper {
   display: flex;
   flex-direction: column;
-
 }
 
-.activate-form .subtitle{
+.activate-form .subtitle {
   margin-bottom: 2rem;
 }
 
@@ -147,28 +152,30 @@ header .secondary-action {
   width: 100%;
 }
 
-.fullpage-form > div:nth-child(1) {
+.form > div:nth-child(1) {
   margin-bottom: 1.5rem;
 }
 
-.fullpage-form label {
+.form label {
   font-weight: 500;
 }
 
-.fullpage-form input {
+.form input,
+.form textarea {
   border-radius: 0.6rem;
   padding: 0.6rem 1.1rem;
   font-size: 1rem;
   border: 1px solid #64748b;
 }
 
-.fullpage-form input:focus {
+.form input:focus,
+.form textarea:focus {
   outline: 0;
   border: 1px solid #a855f7;
   box-shadow: #a855f7 0px 0px 8px;
 }
 
-.fullpage-form .submit {
+.form .submit {
   font-size: inherit;
   padding: 0.7rem 1.5rem;
   border: 0;
@@ -179,11 +186,36 @@ header .secondary-action {
   align-self: flex-end;
 }
 
-.fullpage-form .submit:hover {
+.form .submit:hover {
   cursor: pointer;
 }
 
 .error {
   color: #dc2626;
   margin-bottom: 0.5rem;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message-form label {
+  font-size: 1.1rem;
+}
+
+.message-form textarea {
+  resize: none;
+  height: 150px;
+}
+
+.message-block {
+  border-left: 10px solid #c084fc;
+  padding: 0.1rem 1.5rem;
+  height: max-content;
+}
+
+.message-block .title {
+  font-weight: 700;
 }

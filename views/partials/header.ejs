@@ -6,11 +6,13 @@
   <a href="/log-out" class="secondary-action">
     Log Out
   </a>
+  <% if (!user.isMember) { %>
   <button class="primary-action">
     <a href="/activate">
       Become a Member
     </a>
   </button>
+  <% } %>
   <% } else { %>
   <button class="primary-action">
     <a href="/sign-up">Join the Club</a>

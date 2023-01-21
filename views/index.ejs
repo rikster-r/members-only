@@ -2,14 +2,34 @@
 <html>
 
 <head>
-  <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <title>Message Board | Members Only</title>
 </head>
 
 <body>
   <%- include('partials/header.ejs', {user}) %>
-  <h1><%= user %> </h1>
+  <div class="center-wrapper">
+    <% if (messages) { %>
+    <div class="messages-list">
+      <% messages.forEach(message => { %>
+      <div class="message-block">
+        <p><%= message.text %> </p>
+        <p class="title">
+          <% if (user?.isMember) { %>
+          <%= message.author.username %> -
+          <% } else { %>
+          Anonymous -
+          <% } %>
+          <%= message.date %> </p>
+      </div>
+      <% }) %>
+    </div>
+    <% } %>
+
+    <% if (user) { %>
+    <%- include('partials/message-form.ejs') %>
+    <% } %>
+  </div>
 </body>
 
 </html>
